@@ -1,0 +1,690 @@
+---
+title: "RCrashCoursePartII"
+author: "Fred LaPolla"
+date: "2023/06/29"
+output: slidy_presentation
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Review
+
+* What is the command for reading in a CSV file to R?
+
+* What command lets us find out what type of data we are working with?
+
+* Name some data types in R.
+
+* What is the difference between a matrix and a dataframe?
+
+
+## Pulling the data in
+
+```{r, echo = T}
+
+nyc <- read.csv("https://raw.githubusercontent.com/fredlapolla/RCrashCourse/main/NYC_HANES_DIAB.csv")
+
+```
+
+
+##	Installing and Working with Packages
+
+R has quite a bit of built-in functionality, but there are also many, many free packages that add functions that are not part of the base R functionality. You can download and install these packages, then tell R which packages you want to use, in order to pull in functions that make your work easier. By selecting install under the Packages tab (or using the install.packages() function), you can choose the packages you want to install. 
+
+Using the install button, install the package dplyr now. This package has many functions that make data processing easier. 
+
+Once you have installed a package, you still need to tell RStudio when you want to use it by calling the library() function.
+
+***
+
+## Functions
+
+</br>
+</br>
+
+
+When we work with R, we will call functions to do things to our data, which can include transforming the way the data is set up to make it easier to work with, running analyses on our data or making visualizations. 
+
+Earlier we did a basic function:
+
+```{r,, echo = T}
+mean(1:10)
+```
+
+Or another:
+
+```{r,, echo = T}
+class(nyc)
+```
+
+
+
+***
+
+## Functions
+
+</br>
+</br>
+</br>
+
+
+Functions will take some data object and do something to it. They can take multiple **arguments.** Arguments are the part of a function that specify what needs to be done, and they can be simple or complex. 
+
+A function like mean can sometimes work with one argument, the vector that you are taking the mean of. To see what other arguments it takes, we can run:
+
+```{r, , echo = T}
+?mean
+```
+
+***
+
+## Functions and Arguments
+
+</br>
+</br>
+</br>
+
+We can see that mean takes three main arguments: x, "an R object" basically the numbers you want the mean of. x is the only manadatory argument. Trim, a fraction that trims from either end of the vector of numbers being averaged. na.rm removes any NAs. This is important because mean cannot run with NAs. 
+
+***
+
+
+## Arguments
+
+</br>
+</br>
+</br>
+
+How can you know when arguments are required or not? 
+
+Honestly this is mostly through trial and error and copying how others code their functions. 
+
+***
+
+## Functions
+
+</br>
+</br>
+</br>
+
+You can write your own functions and name them:
+
+```{r , echo = T}
+doubleMeanFunc <- function(n){mean(n)*2}
+n <- 1:10
+mean(n)
+doubleMeanFunc(n)
+```
+
+The general format is function(x,y){**some command**}. You do not have to have multiple variables. 
+
+## Repeating functions
+
+</br>
+</br>
+</br>
+
+If we were to try to get the mean of each numeric variable we *could* do something like this:
+
+```{r results = 'hold' , echo = T}
+mean(nyc[,6], na.rm = TRUE)
+mean(nyc[,7], na.rm = TRUE)
+mean(nyc[,8], na.rm = TRUE)
+```
+
+But it may be too time consuming and messy to write the code this way, analyze column by column, especially if we are having a large set of variables to go over.
+
+***
+
+## Apply
+
+You can run a function across a series of columns or rows. There is a whole family of these commands: apply() These functions allow to manipulate slices of data from matrices, arrays, lists and dataframes in a repetitive way.
+
+Apply() is a command to run a function over several rows or columns. Some R experts say that apply is faster than "for loops" in R, and that it works more efficiently with your data. You must provide the following arguments:
+
+1. The dataframe over which you want to run the function
+2. Whether you want to run the function by rows or columns.
+3. The function you want to run over those 
+
+***
+
+## apply(), The General Format:
+
+```{r eval=F, echo = T}
+
+apply(X, MARGIN, FUN, ...)
+
+```
+
+X is an array or a matrix
+
+MARGIN is a variable defining the dimension along the function is applied
+
+FUN, which is the function that you want to apply to the data. (built-in or custom)
+
+***
+
+## Using apply to get means
+
+</br>
+</br>
+</br>
+
+```{r, echo = T}
+apply(nyc[,6:9],2, mean, na.rm = TRUE)
+```
+
+***
+
+#### Thing to be aware of...
+
+Apply converts any data.frame into a matrix (and therefore all values to the same datatype) 
+Whenever the range includes any non-numeric columns, all the results are yielding NAs:
+
+```{r echo = TRUE}
+apply(nyc[,1:3], 2, class)
+apply(nyc[,9:11], 2, class)
+
+apply(nyc[,1:3], 2, mean, na.rm = TRUE)
+apply(nyc[,9:11], 2, mean, na.rm = TRUE)
+```
+
+***
+
+### For loops
+
+A common approach to the same problem of running a command over many rows of data in coding is to use **loops**. One way to implament loops in R is by using the `for` statement. 
+
+***
+
+
+
+## Syntax of `for` loop
+</br>
+</br>
+</br>
+
+
+
+```{r eval=FALSE, echo = T}
+  for (val in sequence)
+  {
+  statement
+  }
+```
+
+Where, `sequence` is a vector of elements, not neccessarily sequential. `val` is the name of the variable that gets its current value from the n^th^ element in `sequence`. Note: the parentheses are not optional!
+
+
+In a typical `for` loop you tell R "for every instance of some element in a set, do something." Here we will tell R to multiply a variable by 3 for every number between 1 and 10.
+
+
+```{r echo = TRUE}
+for (i in 1:10)
+{
+  i <- i*3
+  print(i)
+}
+```
+
+***
+
+## For loops for getting means like above
+
+</br>
+</br>
+</br>
+
+
+Apply functions work similar to for loops. R people tend to say that For Loops are less efficient in R. 
+
+
+
+```{r, echo = T}
+for( i in 6:9) {
+  value <- mean(nyc[,i], na.rm = TRUE)
+  print(c(colnames(nyc[i]), value))
+}
+```
+
+Note that R did not store these in any sort of table, each line is essentially overwriting the previous. 
+
+***
+
+## Using `for` with variables in your data
+
+We can use these for loops to iterate through each row of our data. Here we will limit to 100 rows to lessen the run-time. We will define a new variable, 'CHOLRAT' that holds the 'Relative CHOLESTEROL by HDL' index
+
+```{r echo = TRUE}
+for (i in 1:100) {
+    nyc[i, "CHOLRAT"] <- nyc[i, "CHOLESTEROLTOTAL"] / nyc[i, "HDL"]
+}
+hist(nyc$CHOLRAT)
+```
+
+We are telling R that for each row, divide the total cholesterol, by HDL, put that new information into a new column (at the end of our dataframe) then plot the resulting data.
+
+
+
+
+***
+
+#  Visualizations 
+
+
+***
+
+## Plot
+
+Plot is a quick way to make a chart, typically for exploring your data. The general argument will be:
+
+  plot(X, Y) 
+  
+For two variables, q plot will default to a scatter plot,
+
+ 
+```{r, echo = T}
+plot(nyc$UCREATININE, nyc$SPAGE)
+```
+ 
+*** 
+
+## Histograms
+
+One of the most useful charts you may make is a histogram. A histogram is like a bar chart that displays the distribution of our data, basically with each bar presenting how many records fall into a subset of values. We use histograms to assess quickly if our data is normally distributed, or has a skew.
+
+```{r, echo = T}
+hist(nyc$UCREATININE)
+```
+
+***
+
+## Boxplot
+
+Another chart that displays skew, as well as key values like median and quartiles is a boxplot:
+
+```{r, echo = T}
+boxplot(nyc$CHOLESTEROLTOTAL ~ nyc$GENDER, na.rm=T)
+```
+
+***
+
+## Exercise: 
+
+Create a visualization to assess the skew of LEAD and of HDL levels. 
+
+```{r}
+
+```
+
+
+
+***
+
+
+## Subsets
+
+Sometimes it is desirable to create a subset of a dataset that only contains those observations for which all there is a complete set of data, that is, no NAs. The na.omit() function will remove all observations that are not complete. So any row that has even a single NA will be deleted.
+
+```{r, echo = T}
+no_na <- na.omit(nyc)
+
+```
+
+
+A more conservative approach is to remove only those observations that have NAs in key variables. For example, removing only those animals from  full_data  for whom there is an NA in the rem variable. This can be done using the function is.na(). In this case, we want to modify the function by sing the exclamation mark (logical NOT symbol), so that we can specify that we want all values that are NOT NA.
+
+```{r, echo = T}
+has_cholesterol <- filter(nyc, !is.na(nyc$CHOLESTEROLTOTAL))
+
+```
+
+
+
+***
+
+
+## Data Wrangling
+
+
+
+```{r, echo = T}
+#install.packages("tidyverse",  repos =  "http://lib.stat.cmu.edu/R/CRAN/")
+
+library(tidyverse)
+```
+
+
+
+
+***
+
+#Subsetting Observations
+
+We used indexing to pull out subsets of observations of our data frame, but often when you pull out a subset of observations, you want observations that meet certain criteria. The function, filter(), in dplyr that allows you to easily do that using logic operators. The following are logic operators in R:
+
+Function	Operator
+>- EQUALS	==
+>- AND		&	
+>- OR	|
+>- NOT	!
+
+NOTE: A single = is used for assignment, a double == is a logical operator and is checking to see if the statement is true
+
+***
+
+## Filter
+
+The function filter() will need two arguments:
+1) the data frame of interest
+2) the logical condition to apply to the observations
+
+Let's filter for only diabetics
+
+```{r, echo = T}
+diabetics  <-  filter(nyc,  nyc$DX_DBTS  ==  1)
+```
+
+***
+
+## Logic and filtering
+
+You can use logical operators (AND = &, OR = |, NOT = !) to create complex conditions:
+
+  
+```{r, echo = T}
+youngerDiabetics  <-  filter(nyc, nyc$DX_DBTS == 1  &  nyc$AGEGROUP  ==   1)
+```
+
+***
+
+## Exercise: 
+
+Create a subset of the nyc_hanes dataset that has data only for the oldest group of diabetics that have a total cholesterol over 200. How many observations are in the resulting dataset?
+
+```{r, echo = T}
+
+```
+
+## Hypothesis Testing
+
+Tests to see if differences appear in groups we are analyzing. 
+
+Typically we want to see if the null hypothesis is true or can be rejected. 
+
+Results are termed in rejection of the null or failure to reject the null. 
+
+```{r, echo = T}
+nyc <-read.csv("https://raw.githubusercontent.com/fredlapolla/RVilcekMasters2021/main/NYC_HANES_DIAB.csv")
+
+nyc$AGEGROUP <- factor(nyc$AGEGROUP, levels = 1:3, labels = c("Youngest", "Middle", "Aged"))
+nyc$GENDER <- factor(nyc$GENDER, levels = 1:2, labels = c("male", "female"))
+# Rename the HSQ_1 factor for identification
+  nyc$HSQ_1 <- factor(nyc$HSQ_1, levels = 1:5, labels=c("Excellent","Very Good","Good", "Fair", "Poor"))
+  # Rename the DX_DBTS as a factor
+  nyc$DX_DBTS <- factor(nyc$DX_DBTS,levels = 1:3, labels=c("Diabetes with DX","Diabetes with no DX","No Diabetes"))
+  #Diabetes dichotomy
+  nyc$DBT_dichotomy <- ifelse(nyc$DX_DBTS == "No Diabetes", "NoDX", "DX")
+  #hsq dichotomy
+  nyc$HSQ_Dichotomy <- ifelse(nyc$HSQ_1 == "Excellent" | nyc$HSQ_1 == "Very Good", "VGood", "NotVGood")
+
+
+```
+
+
+***
+
+## P Values
+
+Important to note that a P value is just the odds of finding a result as "far" from the mean of the control group assuming the null hypothesis was true. So .05 means that only 5% of the time we would assume a result as far from the control group's mean assuming there is no difference. 
+
+This is important because in data like RNA Seq Analysis, we may have 1000s of rows, simply see which results are significant at .05 is **Not** going to be meaningful. 
+
+**Remember** a P value < .05, does not mean either that your finding is "true" and it definitely does not mean it is biologically or scientifically significant.
+
+A p value should be only one part of a broader context, including confidence intervals and honest assessment of how likely the findings were in the first place.
+
+There is an on-going push among statisticians to de-emphasize the p value. 
+
+If you have a very small p in r, you get a value like "p-value < 2.2e-16" but for publishing you should write something like "p < .001"
+
+
+
+
+***
+
+## Contingency tables and Chi Squared X^2
+
+Used for assessing if the proportions of of nominal (factor) variables are what we would expect if the groups were equal of not.
+
+Chi square assumes > 5 observations per cell. Null hypothesis is that rows and columns are independent. It is easier to interpret a 2x2 square:
+
+```{r, echo = T}
+chisq.test(nyc$HSQ_Dichotomy, nyc$DBT_dichotomy)
+```
+
+ 
+
+
+***
+
+## Odds Ratio 
+
+The most common effect measurement is the odds ratio, which would be dividing the group that has some exposure by those that did not. This would mean for a 2x2 table:
+
+Number of having a Excellent or Very Good health with diabetes/Number of Excellent or Very Good Health health without diabetes
+
+Divided by
+
+Number of Not very good health with Diabetes/Number of Not very good health without diabetes 
+
+|a | b |
+|c | d |
+
+(a/b)/(c/d)
+
+Odds of 1 mean no difference, 0:.9999999 means the odds are lower in a group and 1.000000001: infinity mean the odds are higher
+
+Conveniently there is a package called "epitools" that can calculate an oddsratio:
+
+```{r, echo = T}
+#install.packages("epitools")
+library(epitools)
+oddsratio(nyc$HSQ_Dichotomy, nyc$DBT_dichotomy)
+```
+
+
+***
+
+## Adding contingency tables
+
+
+Typically we will also want to see the actual tables. Creating a table will show us the total nubers, prop.table will tell us the percentage by either row (setting the margin to 1) or column (setting the margin to 2)
+
+```{r, echo = T}
+HSQDxTable <- table(nyc$HSQ_Dichotomy, nyc$DBT_dichotomy)
+HSQDxTable
+ # Proportions of Age by DX per row
+ prop.table(HSQDxTable, 1)
+ # Proportions of Age by DX per column
+ prop.table(HSQDxTable, 2)
+chisq.test(nyc$HSQ_Dichotomy, nyc$DBT_dichotomy)
+oddsratio(HSQDxTable)
+```
+***
+
+## T Test
+
+T Test is used for comparing the means between two normally distributed groups. The null hypothesis says there is no difference between means of the groups. 
+
+First we will review assessing normality. 
+
+```{r, echo = TRUE}
+par(mfrow = c(1,2))
+library(psych)
+library(dplyr)
+by( nyc$CHOLESTEROLTOTAL,nyc$GENDER, hist)
+psych::describe(nyc$CHOLESTEROLTOTAL)
+femChol <- nyc %>% filter(GENDER == "female") 
+maleChol <- nyc %>% filter(GENDER == "male")
+psych::describe(femChol$CHOLESTEROLTOTAL)
+psych::describe(maleChol$CHOLESTEROLTOTAL)
+
+## close enough for the demo
+```
+
+***
+
+## T-Tests
+
+Now to actually do the T-Test: t.test compares the means. If we are comparing two objects, such as two columns, the notation is t.test(varA **,** VarB). If we are comparing some column by some variable (like cholesterol by sex) we would use the tilde: 
+
+```{r, echo = T}
+t.test(nyc$CHOLESTEROLTOTAL ~ nyc$GENDER)
+```
+
+In R, if you set var.equal = FALSE, R automatically checks the variances to see if they are equal and "decides" to run the student vs Welch test based on if they are equal or not, so you can leave as False. 
+
+
+```{r, echo = T}
+t.test(femChol$CHOLESTEROLTOTAL, maleChol$CHOLESTEROLTOTAL, paired = FALSE, alternative = "two.sided", conf.level = 0.95, var.equal = FALSE)
+```
+
+Things to note, paired is set to false. Paired would mean they were the same people/subjects. So for example if we weighed people at the start of a test, then put them on a diet and weighed at the end, that would be paired. Here the male and female groups are totally separate people. 
+
+The tails "alternative" is two.sided. It could be lesser or greater if we were doing a single tailed test, but this is less common. 
+
+We also set variance as equal because the variances were close. A more conservative approach would be to set as false. 
+
+
+***
+
+## On Your Own
+
+Try comparing mean LDL by if a person has diabetes or not. To do this you will need to:
+
+1) Collapse Diabetes into two groups
+2) Check that LDL Estimate appears normally distributed
+3) Run a T Test. 
+
+***
+
+## Non-Parametric Tests for Comparing Medians
+
+### Mann-Whitney (unpaired) and Wilcoxon (paired)
+
+If we have a small sample under 30 (which in this case we have a large sample) and non-normally distributed data we may need to choose a non-parametric test. 
+
+**Confusing note:** Both of these are called wilcox.test() in R, and we then set an argument to be paired = TRUE or FALSE. 
+
+Remember paired means they are the same subjects before and after, unpaired means they are separate. 
+
+Also non-parametric means not normally distributed. Outliers will throw off t-tests and parametric tests. 
+
+```{r, echo = T}
+## Because paired = False, technically this is a Mann-Whitney test
+wilcox.test( nyc$COTININE ~ nyc$GENDER, paired = FALSE)
+```
+
+If these were before and after data, we could perform the Wilcoxon test by setting paired = TRUE. 
+
+
+***
+
+## Continuing Your R Journey
+This class has been a very basic introduction to working with data using R, but of course, there is much, much more that R can do. Fortunately, there are many ways to get help figuring out how to do new things in R, or troubleshooting when your R commands don't work the way you think they should.
+
+***
+
+## Google is your friend
+Getting a cryptic error message? Trying to figure out what function does what you are trying to do? Chances are very good that someone else has had your exact question and has gotten it answered! Google! And be as specific as possible!  And look in your search results for the following sites:
+
+1) Stack Overflow: site where people can ask questions and the community will answer. Essential resource! 
+
+(https://stackoverflow.com): 
+
+2)CRAN - The Comprehensive R Archive Network: basically the official site of R. Lots of documentation is hosted there, so you can usually find thorough descriptions of functions and packages
+
+https://cran.r-project.org
+
+3)	R Bloggers: user-created tutorials on a variety of topics 
+
+https://www.r-bloggers.com
+
+4)	Quick-R: a clear guides to common operations in R, run by DataCamp which also has online classes on a freemium model
+
+https://www.statmethods.net/index.html
+
+***
+
+##	Recommended Books
+These resources provide nice overview information to help you learn more about accomplishing general data tasks in R.
+1) Field, Andy, Discovering Statistics Using R
+2) Lander, Jared P. R for Everyone
+3)	Teetor, Paul. The R Cookbook: Proven Recipes for Data Analysis, Statistics, and Graphics
+4)	Grolemund, Garrett & Wickham, Hadley. R for Data Science
+
+***
+
+##	Do Something (Anything!) in R
+Find something that you have done or were going to do in a spreadsheet, or another programming language or just make something up to do, and do it in R instead. 
+
+1)	Read in a file  -- read.csv(file = FILENAME.csv)
+2)	Use select or filter to grab a subset of the data
+3)	Use mean, max, etc. for descriptive statistics do not forget to use na.rm!
+4)	Save your code in an R file
+5)	Save your data, write.csv(DATAFRAME, file = "FILENAME.csv")
+
+If you do not remember how to do something, or want to do something that was not covered in class:  Google it!! The only way to learn R is to use it!
+
+***
+
+## Practice
+
+
+
+
+Try making a new dichotomous variable of triglycerides (coding it as 1 or 0 based on high or low value). 
+
+```{r}
+
+```
+
+Make gender into a factored variable (hint: check the codebook at http://nychanes.org/data/ to see what value correspond to which number)
+
+```{r}
+
+```
+
+Convert DX_DBTS to a factor and make a frequency table. Bonus: make a cross table of DX_DBTS by Age Group
+
+```{r}
+
+```
+
+Find the mean amount of LEAD blood levels in the dataframe:
+
+```{r}
+
+```
+
+
+Try making a plot scatter plot of SPAGE vs Total Cholesterol.
+
+```{r}
+
+```
+
+Try making a histogram of the one variable in nyc. 
+
+```{r}
+
+```
+
+Try making a boxplot of creatinine separated by diabetes status.
+
+```{r}
+
+```
