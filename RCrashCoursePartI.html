@@ -525,7 +525,7 @@ list-style-type: none;
   <p class="author">
 Fred LaPolla
   </p>
-  <p class="date">6/27/2022</p>
+  <p class="date">4/16/2024</p>
 </div>
 <div class="slide section level1">
 
@@ -540,10 +540,10 @@ Throughout the R notebook, you will see the example code displayed like
 this. Code can be run by hitting the Play button triangle. If your code
 has an error and you want to reset your code up to this point, the down
 arrow with a green line runs all code up to this point:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">2</span>  <span class="sc">+</span>  <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">2</span>  <span class="sc">+</span>  <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>four <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>four <span class="ot">&lt;-</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>four <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>four <span class="ot">&lt;-</span> <span class="dv">5</span></span></code></pre></div>
 </div>
 <div class="slide section level1">
 
@@ -574,7 +574,7 @@ Markdown file. It allows you to have text with embedded code. For
 example we can provide explanatory text and then offer a line of R code
 for you to execute. Try running the following code to do a simple math
 problem:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <p>R Markdown files are primarily used for presenting your work to
 others. This class is using a type of markdown file called an R
@@ -653,54 +653,20 @@ bar.</li>
 </ol>
 <p>If you want to check what your current working directory is, use the
 command getwd:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;/Users/lapolf01/Documents/Education&quot;</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;C:/Users/lapolf01/Downloads/RCrashCourse-main&quot;</code></pre>
 </div>
 <div class="slide section level1">
 
 <h2 id="working-directory">Working Directory</h2>
 <p>If you want to find out what files are in your current working
 directory is, use the command dir:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()</span></code></pre></div>
-<pre><code>##  [1] &quot;2019-sadc-spss-input-programFLYRBSHS.sps&quot;                                                                 
-##  [2] &quot;DataDaytoDay&quot;                                                                                             
-##  [3] &quot;DataEthics&quot;                                                                                               
-##  [4] &quot;DMPMod2HW&quot;                                                                                                
-##  [5] &quot;DMPMod2HW_infoDeleted.docx&quot;                                                                               
-##  [6] &quot;DMPMod2HW.docx&quot;                                                                                           
-##  [7] &quot;Excel&quot;                                                                                                    
-##  [8] &quot;Fall 2021 R Vilcek&quot;                                                                                       
-##  [9] &quot;February R&quot;                                                                                               
-## [10] &quot;library_user_personas_NYULH_FL.pptx&quot;                                                                      
-## [11] &quot;MHPE2021&quot;                                                                                                 
-## [12] &quot;MHPE2021_demo&quot;                                                                                            
-## [13] &quot;NAMCS2019-spss.sav&quot;                                                                                       
-## [14] &quot;NHAMCSed2020-spss.sav&quot;                                                                                    
-## [15] &quot;PowerPoint&quot;                                                                                               
-## [16] &quot;R2021&quot;                                                                                                    
-## [17] &quot;RCrashCoursePartI.html&quot;                                                                                   
-## [18] &quot;RCrashCoursePartI.Rmd&quot;                                                                                    
-## [19] &quot;RCrashCoursePartII.Rmd&quot;                                                                                   
-## [20] &quot;Reproducibility2023Articles.Data&quot;                                                                         
-## [21] &quot;Reproducibility2023Articles.enl&quot;                                                                          
-## [22] &quot;ResearchPracticum_2023_2&quot;                                                                                 
-## [23] &quot;ResearchPracticum2021&quot;                                                                                    
-## [24] &quot;ResearchPracticum23_1&quot;                                                                                    
-## [25] &quot;RigorRepro23&quot;                                                                                             
-## [26] &quot;RigorReproducibility_2021_Vilcek&quot;                                                                         
-## [27] &quot;RNAseq_workshop&quot;                                                                                          
-## [28] &quot;RPPullingData.R&quot;                                                                                          
-## [29] &quot;RScience2021_libr&quot;                                                                                        
-## [30] &quot;Rubric-for-DataWorks-DMP-Challenge-12-14-21&quot;                                                              
-## [31] &quot;Rubric-for-DataWorks-DMP-Challenge-12-14-21.docx&quot;                                                         
-## [32] &quot;ScienceVox.pdf&quot;                                                                                           
-## [33] &quot;Summer2020R_Masters&quot;                                                                                      
-## [34] &quot;Summer2021_R_Masters_Vilcek&quot;                                                                              
-## [35] &quot;surp21&quot;                                                                                                   
-## [36] &quot;surp21_Demo&quot;                                                                                              
-## [37] &quot;TmeLineDemo.xlsx&quot;                                                                                         
-## [38] &quot;Using_natural_language_processing_to_determine_predictors_of_healthy_diet_and_physical_activity_beha.docx&quot;
-## [39] &quot;VilcekR2022&quot;</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">dir</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;LICENSE&quot;                 &quot;NYC_HANES_DIAB.csv&quot;     
+##  [3] &quot;RCrashCourse-main&quot;       &quot;RCrashCourse.html&quot;      
+##  [5] &quot;RCrashCourse.Rmd&quot;        &quot;RCrashCoursePartI.html&quot; 
+##  [7] &quot;RCrashCoursePartI.Rmd&quot;   &quot;RCrashCoursePartII.html&quot;
+##  [9] &quot;RCrashCoursePartII.Rmd&quot;  &quot;README.md&quot;</code></pre>
 </div>
 <div class="slide section level1">
 
@@ -714,7 +680,8 @@ This is a great way to get a sense of what parts of a function or
 function listed in the help page will be necessary, most are optional.
 The best way to get a sense of what is needed is to see what others have
 done and trial and error.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>?read.csv</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>?read.csv</span></code></pre></div>
+<pre><code>## starting httpd help server ... done</code></pre>
 <p>Note: There are many arguments but we only need to specify those for
 which the default value is not what we want.</p>
 </div>
@@ -724,7 +691,7 @@ which the default value is not what we want.</p>
 <p>You can pull a CSV from a web source, as below, or if it is on your
 computer you can just run:</p>
 <p>nyc &lt;- read.csv(“yourFile.csv”“)</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>nyc <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/fredlapolla/RCrashCourse/main/NYC_HANES_DIAB.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>nyc <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/fredlapolla/RCrashCourse/main/NYC_HANES_DIAB.csv&quot;</span>)</span></code></pre></div>
 </div>
 <div class="slide section level1">
 
@@ -765,7 +732,7 @@ that allow you to find out useful information about the data frame. A
 good way to start is by calling the str() function with the name of the
 data frame as the argument. This function shows the structure of the
 data.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nyc)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">str</span>(nyc)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    1527 obs. of  23 variables:
 ##  $ KEY              : chr  &quot;134040A&quot; &quot;134240B&quot; &quot;134460B&quot; &quot;134490A&quot; ...
 ##  $ GENDER           : int  1 1 1 1 1 1 1 1 1 1 ...
@@ -799,7 +766,7 @@ Remember that observations correspond to the rows of the data frame and
 variables correspond to its columns.</p>
 <p>You can get some basic summary statistics about your data using the
 command summary().</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(nyc)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">summary</span>(nyc)</span></code></pre></div>
 <pre><code>##      KEY                GENDER         SPAGE          AGEGROUP    
 ##  Length:1527        Min.   :1.00   Min.   :20.00   Min.   :1.000  
 ##  Class :character   1st Qu.:1.00   1st Qu.:30.00   1st Qu.:1.000  
@@ -883,14 +850,14 @@ e.g. “PGY1”, “PGY2”, “PGY3” )</li>
 <div class="slide section level1">
 
 <h2 id="lets-take-a-look">Let’s take a look</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(nyc<span class="sc">$</span>AGEGROUP)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">class</span>(nyc<span class="sc">$</span>AGEGROUP)</span></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
 <p>Does this seem right?</p>
 </div>
 <div class="slide section level1">
 
 <p>Let’s fix it:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>nyc<span class="sc">$</span>AGEGROUP<span class="ot">&lt;-</span> <span class="fu">factor</span>(nyc<span class="sc">$</span>AGEGROUP, <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;20-39&quot;</span>, <span class="st">&quot;40-59&quot;</span>, <span class="st">&quot;60+&quot;</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>nyc<span class="sc">$</span>AGEGROUP<span class="ot">&lt;-</span> <span class="fu">factor</span>(nyc<span class="sc">$</span>AGEGROUP, <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;20-39&quot;</span>, <span class="st">&quot;40-59&quot;</span>, <span class="st">&quot;60+&quot;</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 <div class="slide section level1">
 
@@ -931,7 +898,7 @@ could be important</p>
 <p>The functions head() or tail() allow you to look at the first or last
 rows of a data frame. You can specify how many rows are displayed
 (default is 6 rows).</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(nyc, <span class="at">n=</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="fu">head</span>(nyc, <span class="at">n=</span><span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##       KEY GENDER SPAGE AGEGROUP HSQ_1 UCREATININE UALBUMIN        UACR
 ## 1 134040A      1    29    20-39     2         105    0.707 0.006733333
 ## 2 134240B      1    27    20-39     2         296   18.000 6.000000000
@@ -954,7 +921,7 @@ rows of a data frame. You can specify how many rows are displayed
 <div class="slide section level1">
 
 <p>You can also generate a frequency table with the command table:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(nyc<span class="sc">$</span>AGEGROUP)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="fu">table</span>(nyc<span class="sc">$</span>AGEGROUP)</span></code></pre></div>
 <pre><code>## 
 ## 20-39 40-59   60+ 
 ##   697   516   314</code></pre>
@@ -963,7 +930,7 @@ in our dataset. This is useful if you need to check the spelling or
 capitalization of variables, or to find out the column number that
 corresponds to a variable (you can refer to a column by its number or
 name).</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(nyc)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="fu">names</span>(nyc)</span></code></pre></div>
 <pre><code>##  [1] &quot;KEY&quot;               &quot;GENDER&quot;            &quot;SPAGE&quot;            
 ##  [4] &quot;AGEGROUP&quot;          &quot;HSQ_1&quot;             &quot;UCREATININE&quot;      
 ##  [7] &quot;UALBUMIN&quot;          &quot;UACR&quot;              &quot;MERCURYU&quot;         
@@ -1000,7 +967,7 @@ columns, referred to as a slice, e.g. 1:5 will return elements
 same, the meaning is very different since pulling out a set of
 observations, for example taking the first five observations of all the
 NYC HANES data data</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>nyc[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>nyc[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, ]</span></code></pre></div>
 <pre><code>##       KEY GENDER SPAGE AGEGROUP HSQ_1 UCREATININE UALBUMIN        UACR
 ## 1 134040A      1    29    20-39     2         105    0.707 0.006733333
 ## 2 134240B      1    27    20-39     2         296   18.000 6.000000000
@@ -1021,7 +988,7 @@ NYC HANES data data</p>
 ## 5    4.9950       84.864       0.96           65      90   0.0514         132</code></pre>
 <p>…is a very different concept than pulling out the first two variables
 (number and name) for all the observations.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>nyc[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a>nyc[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>##          KEY GENDER SPAGE AGEGROUP HSQ_1
 ## 1    134040A      1    29    20-39     2
 ## 2    134240B      1    27    20-39     2
@@ -2566,7 +2533,7 @@ observations or variables, respectively.</p>
 observations or variables that are not consecutive, for example this
 will select the 1st, 5th, and 80th observations of the name and order
 :</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>nyc[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">80</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a>nyc[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">80</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)]</span></code></pre></div>
 <pre><code>##        KEY HSQ_1
 ## 1  134040A     2
 ## 5  134620A     1
@@ -2577,7 +2544,7 @@ will select the 1st, 5th, and 80th observations of the name and order
 <h2 id="deleting">Deleting</h2>
 <p>It is also possible to use this syntax to remove data. For example,
 this creates a new dataset with everything except the 1st column.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>no_first <span class="ot">&lt;-</span> nyc[, <span class="sc">-</span><span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a>no_first <span class="ot">&lt;-</span> nyc[, <span class="sc">-</span><span class="dv">1</span>]</span></code></pre></div>
 </div>
 <div class="slide section level1">
 
@@ -2587,12 +2554,12 @@ will have missing values, typically represented by NAs. Applying
 functions to variables with NAs can be problematic. For example,
 applying the mean function to the TRIGLYCERIDE variable in the nyc_hanes
 dataset.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nyc<span class="sc">$</span>TRIGLYCERIDE)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="fu">mean</span>(nyc<span class="sc">$</span>TRIGLYCERIDE)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>R returns a mean of NA because there are NA values in this variable,
 but you can tell R to ignore NAs and return the mean of the existing
 data.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nyc<span class="sc">$</span>TRIGLYCERIDE,  <span class="at">na.rm  =</span>  <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a><span class="fu">mean</span>(nyc<span class="sc">$</span>TRIGLYCERIDE,  <span class="at">na.rm  =</span>  <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 99.40017</code></pre>
 </div>
 <div class="slide section level1">
@@ -2602,15 +2569,15 @@ data.</p>
 NAs.</p>
 <p>is.na() returns a logical vector of if a value is NA (missing) or
 not:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">is.na</span>(nyc<span class="sc">$</span>CHOLESTEROLTOTAL))</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">is.na</span>(nyc<span class="sc">$</span>CHOLESTEROLTOTAL))</span></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
 <p>Running the opposite of is.na(), with a ! will mark all non-missing
 values as TRUE:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="sc">!</span><span class="fu">is.na</span>(nyc<span class="sc">$</span>CHOLESTEROLTOTAL))</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a><span class="fu">head</span>(<span class="sc">!</span><span class="fu">is.na</span>(nyc<span class="sc">$</span>CHOLESTEROLTOTAL))</span></code></pre></div>
 <pre><code>## [1] TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
 <p>So we can combine this with indexing to get a subset of non-missing
 values:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(nyc[<span class="sc">!</span><span class="fu">is.na</span>(nyc<span class="sc">$</span>CHOLESTEROLTOTAL),])</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a><span class="fu">head</span>(nyc[<span class="sc">!</span><span class="fu">is.na</span>(nyc<span class="sc">$</span>CHOLESTEROLTOTAL),])</span></code></pre></div>
 <pre><code>##       KEY GENDER SPAGE AGEGROUP HSQ_1 UCREATININE UALBUMIN        UACR
 ## 1 134040A      1    29    20-39     2         105    0.707 0.006733333
 ## 2 134240B      1    27    20-39     2         296   18.000 6.000000000
