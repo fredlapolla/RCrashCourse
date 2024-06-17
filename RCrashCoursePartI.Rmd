@@ -1,7 +1,7 @@
 ---
 title: "Intro to R Crash Course"
 author: "Fred LaPolla"
-date: "4/16/2024"
+date: "6/18/2024"
 output:
   slidy_presentation: default
   ioslides_presentation: default
@@ -424,6 +424,3 @@ head(nyc[!is.na(nyc$CHOLESTEROLTOTAL),])
 ```
 
 
-***
-
-See you Thursday!
