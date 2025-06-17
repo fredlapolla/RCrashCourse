@@ -50,6 +50,12 @@ Learning R is a journey, and you should not expect to walk out of one workshop w
 In this class, we are using an R Notebook RStudio, which is an integrated development environment (IDE).
 
 ***
+
+## A note about vibe coding
+
+Definitely feel free to use tools like Copilot to help use R. Be aware you will need a basic understanding of syntax and generally a lot of patience to troubleshoot and write a highly specific prompt. 
+
+***
 	
 ## Scripting vs. Processing vs. Markdown
 
